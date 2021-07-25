@@ -1,22 +1,21 @@
 const accordion = (triggersSelector) => {
     const btns = document.querySelectorAll(triggersSelector);
-        //   blocks = document.querySelectorAll(itemsSelector);
 
     btns.forEach(btn => {
         btn.addEventListener('click', function() {
-            let sibling = this.nextElementSibling;
             this.classList.toggle('active-style');
-            sibling.classList.toggle('active-content');
- 
+            this.nextElementSibling.classList.toggle('active-content');
+
             if (this.classList.contains('active-style')) {
-                sibling.style.maxHeight = sibling.scrollHeight + 80 + 'px';
+                this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + 80 + "px";
             } else {
-                sibling.style.maxHeight = '0px';
+                this.nextElementSibling.style.maxHeight = '0px';
             }
         });
     });
 
-    //аккордеон на css
+    //   blocks = document.querySelectorAll(itemsSelector);
+
     // blocks.forEach(block => {
     //     block.classList.add('animated', 'fadeInDown');
     // });
@@ -31,8 +30,6 @@ const accordion = (triggersSelector) => {
     //         }
     //     });
     // });
-
-
 };
 
 export default accordion;
